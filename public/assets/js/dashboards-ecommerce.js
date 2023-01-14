@@ -420,10 +420,6 @@
         {
           name: 'Earning',
           data: [270, 210, 180, 200, 250, 280, 250, 270, 150]
-        },
-        {
-          name: 'Expense',
-          data: [-140, -160, -180, -150, -100, -60, -80, -100, -180]
         }
       ],
       chart: {
@@ -445,7 +441,7 @@
           endingShape: 'rounded'
         }
       },
-      colors: [config.colors.primary, config.colors.warning],
+      colors: [config.colors.primary],
       dataLabels: {
         enabled: false
       },
@@ -506,8 +502,6 @@
             fontFamily: 'Public Sans'
           }
         },
-        min: -200,
-        max: 300,
         tickAmount: 5
       },
       responsive: [
