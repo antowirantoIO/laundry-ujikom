@@ -22,6 +22,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Customer ID</th>
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Alamat</th>
@@ -34,6 +35,7 @@
                             @foreach ($customers as $customer)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $customer->kode_user }}</td>
                                     <td>{{ $customer->name }}</td>
                                     <td>{{ $customer->email }}</td>
                                     <td>{{ $customer->alamat }}</td>
@@ -74,6 +76,6 @@
         <script src="{{ asset('/') }}vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
     </x-slot>
     <x-slot name="page_js">
-        <script src="{{ asset('/') }}js/tables-datatables-basic.js"></script>
+        <script src="{{ asset('/') }}js/customer.js"></script>
     </x-slot>
 </x-app-layout>

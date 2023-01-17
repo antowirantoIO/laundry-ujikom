@@ -182,6 +182,6 @@
         <script src="{{ asset('/') }}vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
     </x-slot>
     <x-slot name="page_js">
-        <script src="{{ asset('/') }}js/dashboards-ecommerce.js"></script>
+        <script src="{{ asset('/') }}js/dashboards.js"></script>
     </x-slot>
 </x-app-layout>
