@@ -1,21 +1,14 @@
 <x-app-layout title="Manage data Customer">
     <x-slot name="vendor_css">
-        <link rel="stylesheet" href="{{ asset('/') }}vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-        <link rel="stylesheet" href="{{ asset('/') }}vendor/libs/node-waves/node-waves.css" />
-        <link rel="stylesheet" href="{{ asset('/') }}vendor/libs/typeahead-js/typeahead.css" />
         <link rel="stylesheet" href="{{ asset('/') }}vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
-        <link rel="stylesheet"
-            href="{{ asset('/') }}vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
-        <link rel="stylesheet"
-            href="{{ asset('/') }}vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
         <link rel="stylesheet" href="{{ asset('/') }}vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
-        <link rel="stylesheet" href="{{ asset('/') }}vendor/libs/flatpickr/flatpickr.css" />
     </x-slot>
     <x-slot name="page_css"></x-slot>
 
     <main>
         <div class="container-xxl flex-grow-1 container-p-y">
             <!-- DataTable with Buttons -->
+            <x-alert :message="session('success')" />
             <div class="card">
                 <div class="card-datatable table-responsive pt-0">
                     <table class="datatables-basic table">
@@ -50,14 +43,21 @@
                                                     <i class="text-primary ti ti-dots-vertical"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-end m-0">
-                                                    <a href="javascript:;" class="dropdown-item">Details</a>
-                                                    <a href="javascript:;" class="dropdown-item">Archive</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a href="javascript:;"
-                                                        class="dropdown-item text-danger delete-record">Delete</a>
+                                                    <a href="{{ route('customer.show', $customer->kode_user) }}"
+                                                        class="dropdown-item">Details</a>
+                                                    <form
+                                                        action="{{ route('customer.destroy', $customer->kode_user) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="button"
+                                                            class="dropdown-item text-danger confirm-delete">Delete</button>
+                                                    </form>
+
                                                 </div>
                                             </div>
-                                            <a href="javascript:;" class="btn btn-sm btn-icon item-edit">
+                                            <a href="{{ route('customer.edit', $customer->kode_user) }}"
+                                                class="btn btn-sm btn-icon item-edit">
                                                 <i class="text-primary ti ti-pencil"></i>
                                             </a>
                                         </div>
@@ -77,5 +77,12 @@
     </x-slot>
     <x-slot name="page_js">
         <script src="{{ asset('/') }}js/customer.js"></script>
+        @if (session('success'))
+            <script>
+                $(document).ready(function() {
+                    $('#liveToast').toast('show');
+                });
+            </script>
+        @endif
     </x-slot>
 </x-app-layout>

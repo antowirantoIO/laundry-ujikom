@@ -67,9 +67,9 @@ class CustomerController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(User $customer)
     {
-        //
+        return view('customer.show', compact('customer'));
     }
 
     /**
@@ -78,9 +78,9 @@ class CustomerController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(User $customer)
     {
-        //
+        return view('customer.edit', compact('customer'));
     }
 
     /**
@@ -90,9 +90,16 @@ class CustomerController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $customer)
     {
-        //
+        $customer->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'no_telp' => $request->no_telp,
+            'alamat' => $request->alamat,
+        ]);
+
+        return redirect()->route('customer.index')->with('success', 'Customer updated successfully.');
     }
 
     /**
@@ -101,8 +108,10 @@ class CustomerController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(User $customer)
     {
-        //
+        $customer->delete();
+
+        return redirect()->route('customer.index');
     }
 }

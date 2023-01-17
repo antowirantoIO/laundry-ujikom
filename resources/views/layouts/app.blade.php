@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="{{ asset('/') }}css/demo.css" />
 
     <!-- Vendors CSS -->
+    <link rel="stylesheet" href="{{ asset('/') }}vendor/libs/sweetalert2/sweetalert2.css" />
     {{ $vendor_css ?? '' }}
 
     <!-- Page CSS -->
@@ -80,19 +81,7 @@
                                         document.write(new Date().getFullYear());
                                     </script>
                                     , made with ❤️ by <a href="https://pixinvent.com" target="_blank"
-                                        class="fw-semibold">Pixinvent</a>
-                                </div>
-                                <div>
-                                    <a href="https://themeforest.net/licenses/standard" class="footer-link me-4"
-                                        target="_blank">License</a>
-                                    <a href="https://1.envato.market/pixinvent_portfolio" target="_blank"
-                                        class="footer-link me-4">More Themes</a>
-
-                                    <a href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation/"
-                                        target="_blank" class="footer-link me-4">Documentation</a>
-
-                                    <a href="https://pixinvent.ticksy.com/" target="_blank"
-                                        class="footer-link d-none d-sm-inline-block">Support</a>
+                                        class="fw-semibold">RPL SMKN 1 CIAMIS</a>
                                 </div>
                             </div>
                         </div>
@@ -130,6 +119,7 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
+    <script src="{{ asset('/') }}vendor/libs/sweetalert2/sweetalert2.js"></script>
     {{ $vendor_js ?? '' }}
 
     <!-- Main JS -->

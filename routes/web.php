@@ -32,9 +32,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/customer', [CustomerController::class, 'index'])->name('customer.index');
 Route::get('/customer/create', [CustomerController::class, 'create'])->name('customer.create');
 Route::post('/customer', [CustomerController::class, 'store'])->name('customer.store');
-Route::get('/customer/{user}', [CustomerController::class, 'show'])->name('customer.show');
-Route::get('/customer/{user}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
-Route::patch('/customer/{user}', [CustomerController::class, 'update'])->name('customer.update');
-Route::delete('/customer/{user}', [CustomerController::class, 'destroy'])->name('customer.destroy');
+Route::get('/customer/{customer:kode_user}', [CustomerController::class, 'show'])->name('customer.show');
+Route::get('/customer/{customer:kode_user}/edit', [CustomerController::class, 'edit'])->name('customer.edit');
+Route::patch('/customer/{customer:kode_user}', [CustomerController::class, 'update'])->name('customer.update');
+Route::delete('/customer/{customer:kode_user}', [CustomerController::class, 'destroy'])->name('customer.destroy');
 
 require __DIR__.'/auth.php';

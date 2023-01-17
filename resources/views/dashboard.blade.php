@@ -20,9 +20,13 @@
                         <div class="d-flex align-items-end row">
                             <div class="col-7">
                                 <div class="card-body text-nowrap">
-                                    <h5 class="card-title mb-0">Welcome John! 🎉</h5>
+                                    {{-- get first word --}}
+                                    @php
+                                        $name = explode(' ', Auth::user()->name);
+                                    @endphp
+                                    <h5 class="card-title mb-0">Welcome {{ $name[0] }}! 🎉</h5>
                                     <p class="card-text font-small-2">Semoga harimu menyenangkan.</p> <br>
-                                    Saturday, 14 January 2023
+                                    {{ date('l, d F Y') }}
                                 </div>
                             </div>
                             <div class="col-5 text-center text-sm-left">
